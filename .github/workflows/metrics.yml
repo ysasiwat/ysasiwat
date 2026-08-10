@@ -28,6 +28,7 @@ jobs:
           user: ysasiwat
           template: classic
           base: header, activity, community, repositories, metadata
+          base_indepth: yes
           config_display: columns
           config_octicon: yes
           config_timezone: Asia/Bangkok
