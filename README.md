@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/profile-header.svg" alt="Yoschanin Sasiwat — Space technology, AI systems, and engineering automation" width="100%">
+  <img src="./assets/profile-hero.png" alt="Satellite orbit connecting an AI network with automated engineering systems" width="100%">
 </p>
 
 <p align="center">
@@ -30,4 +30,4 @@ I am currently preparing selected engineering work for public release. New repos
   <img src="./github-metrics.svg" alt="Yoschanin's GitHub contribution calendar and language activity" width="100%">
 </p>
 
-<sub>Updated automatically twice a week with <a href="https://github.com/lowlighter/metrics">lowlighter/metrics</a>. Language data is an approximation based on accessible repositories.</sub>
+<sub>Half-year isometric commit calendar · Account overview · Most-used languages · Updated automatically twice a week with <a href="https://github.com/lowlighter/metrics">lowlighter/metrics</a>. Language data is an approximation based on accessible repositories.</sub>
