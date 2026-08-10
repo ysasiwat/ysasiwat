@@ -1,36 +1,45 @@
-# Visit https://github.com/lowlighter/metrics#-documentation for full reference
-name: Metrics
-on:
-  # Schedule updates (each hour)
-  schedule: [{cron: "0 * * * *"}]
-  # Lines below let you run workflow manually and on each commit
-  workflow_dispatch:
-  push: {branches: ["master", "main"]}
-jobs:
-  github-metrics:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          # Your GitHub token
-          # The following scopes are required:
-          #  - public_access (default scope)
-          # The following additional scopes may be required:
-          #  - read:org      (for organization related metrics)
-          #  - read:user     (for user related data)
-          #  - read:packages (for some packages related data)
-          #  - repo          (optional, if you want to include private repositories)
-          token: ${{ secrets.METRICS_TOKEN }}
+name: Profile metrics
 
-          # Options
+on:
+  schedule:
+    # Monday and Thursday at 08:17 Asia/Bangkok (01:17 UTC)
+    - cron: "17 1 * * 1,4"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/metrics.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-metrics
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    if: github.repository == 'ysasiwat/ysasiwat'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Generate contribution and language metrics
+        # lowlighter/metrics v3.34, pinned for reproducible and reviewable builds.
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
+        with:
+          filename: github-metrics.svg
+          token: ${{ secrets.METRICS_TOKEN }}
           user: ysasiwat
           template: classic
-          base: header, activity, community, repositories, metadata
-          base_indepth: yes
-          config_display: columns
-          config_octicon: yes
+          base: ""
+          config_display: large
+          config_order: isocalendar, languages
           config_timezone: Asia/Bangkok
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          plugin_languages_limit: 6
+          plugin_languages_ignored: >-
+            html, css, scss, less, tex, shell, dockerfile, makefile, cmake
