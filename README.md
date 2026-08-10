@@ -27,7 +27,7 @@ I am currently preparing selected engineering work for public release. New repos
 ## GitHub activity
 
 <p align="center">
-  <img src="./github-metrics.svg" alt="Yoschanin's GitHub contribution calendar and language activity" width="100%">
+  <img src="./github-metrics.svg" alt="Yoschanin's GitHub account overview" width="100%">
 </p>
 
-<sub>Half-year isometric commit calendar · Account overview · Most-used languages · Updated automatically twice a week with <a href="https://github.com/lowlighter/metrics">lowlighter/metrics</a>. Language data is an approximation based on accessible repositories.</sub>
+<sub>Account overview · Updated automatically twice a week with <a href="https://github.com/lowlighter/metrics">lowlighter/metrics</a>.</sub>
